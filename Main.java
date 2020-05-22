@@ -6,7 +6,7 @@ import java.util.*;
 import  java.time.*;
 public class Main
 {
-    
+    static Set<LocalDate> set = new HashSet<LocalDate>();
     public static void fillMissingDates(Map<LocalDate,Integer> newDictionary,String prevDate,String nextDate,Integer firstValue,Integer lastValue){
         LocalDate start = LocalDate.parse(prevDate);
         LocalDate end = LocalDate.parse(nextDate);
@@ -43,14 +43,19 @@ public class Main
            }
        }           
 	   for (Map.Entry<LocalDate,Integer> entry : newDictionary.entrySet()) {
+		   if(!set.contains(entry.getKey())){
 	         System.out.println(entry.getKey()+" "+entry.getValue());
+		   }
+		   set.add(entry.getKey());
 	   }
         
     }
 	public static void main(String[] args) {
 	    Map<String,Integer> oldDictionary = new LinkedHashMap<String,Integer>();
-	    oldDictionary.put("2019-01-01",100);
-	    oldDictionary.put("2019-01-04",115);
+	    oldDictionary.put("2019-01-10",10);
+	    oldDictionary.put("2019-01-11",20);
+	    oldDictionary.put("2019-01-13",10);
+
 	    Map<LocalDate,Integer> newDictionary = new LinkedHashMap<LocalDate,Integer>();
 	    String prev=null;
 	    int count=0;
