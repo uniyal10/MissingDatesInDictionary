@@ -17,7 +17,7 @@ public class Main
        }           
 	   for (Map.Entry<LocalDate,Integer> entry : map.entrySet()) {
 	         System.out.println(entry.getKey()+" "+entry.getValue());
-	            }
+	   }
         
     }
 	public static void main(String[] args) {
@@ -30,20 +30,18 @@ public class Main
 	  
 	           
 	   for (Map.Entry<String,Integer> entry : map.entrySet()) {
-	                   if(count==0){
-                  prev = entry.getKey();
-                  count++;
-	       }
-	       else{
-	           String  next = entry.getKey();
-	           fillMissingDates(map1,prev,entry.getKey());
-	           prev = next;
-	       }
-	            }
-	           
 	     
-	
-         
+		if(count==0){
+            prev = entry.getKey();
+            count++;
+	    }
+	    else{
+	        String  next = entry.getKey();
+	        fillMissingDates(map1,prev,entry.getKey());
+	        prev = next;
+	    }
+	            
+	}      
     } 
 	}
 
